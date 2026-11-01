@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>نموذج طلب ملف إنجاز | NIVRO</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap">
+<style>
+:root{--bg:#eef4fb;--card:#fff;--ink:#0f2747;--mute:#5b6f8c;--pri:#1d5fd1;--pri2:#0b2a5b;--soft:#e3eefc;--line:#cfdcf0;--ok:#1a8a5a;--err:#c0392b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1424;--card:#111f36;--ink:#e8f0fc;--mute:#9db0cc;--pri:#5b9bff;--pri2:#0b2a5b;--soft:#182b4a;--line:#27406a}}
+:root[data-theme="dark"]{--bg:#0a1424;--card:#111f36;--ink:#e8f0fc;--mute:#9db0cc;--pri:#5b9bff;--pri2:#0b2a5b;--soft:#182b4a;--line:#27406a}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Cairo',Tahoma,Arial,sans-serif;line-height:1.7}
+.wrap{max-width:720px;margin:0 auto;padding:16px 14px 48px}
+header{background:linear-gradient(135deg,#0b2a5b,#1d5fd1);color:#fff;border-radius:22px;padding:30px 22px;text-align:center;margin-bottom:18px}
+header .logo{font-family:Arial,sans-serif;font-weight:800;letter-spacing:6px;font-size:34px}
+header h1{margin:6px 0 4px;font-size:22px;font-weight:800}
+header p{margin:0;opacity:.88;font-size:15px}
+section{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 18px;margin-bottom:16px}
+section h2{margin:0 0 14px;font-size:18px;display:flex;align-items:center;gap:10px}
+section h2 span{background:var(--pri);color:#fff;border-radius:50%;width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;font-size:14px;flex:none}
+.q{margin-bottom:18px}
+.q:last-child{margin-bottom:0}
+label.t,.t{display:block;font-weight:700;margin-bottom:8px;font-size:15.5px}
+.req{color:var(--err)}.opt{color:var(--mute);font-weight:400;font-size:13px}
+input[type=text],input[type=tel],input[type=date],select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:11px 13px}
+textarea{min-height:100px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--pri);box-shadow:0 0 0 3px var(--soft)}
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.opts label{display:flex;align-items:center;gap:9px;background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;cursor:pointer;font-size:15px}
+.opts label:has(input:checked){background:var(--soft);border-color:var(--pri);font-weight:700}
+.opts input{accent-color:var(--pri);width:18px;height:18px;flex:none}
+.file{border:2px dashed var(--line);border-radius:14px;padding:18px;text-align:center;background:var(--bg)}
+.file input{font:inherit;max-width:100%}
+.hint{color:var(--mute);font-size:13px;margin-top:6px}
+.thumbs{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;justify-content:center}
+.thumbs img{width:64px;height:64px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
+.note{background:var(--soft);border-right:5px solid var(--pri);border-radius:14px;padding:14px 16px;font-size:15px;margin-bottom:16px}
+button.go{width:100%;font:inherit;font-weight:800;font-size:17px;color:#fff;background:linear-gradient(135deg,#0b2a5b,#1d5fd1);border:0;border-radius:14px;padding:14px;cursor:pointer}
+.err{color:var(--err);font-size:13px;margin-top:5px;display:none}
+.bad .err{display:block}.bad input[type=text],.bad input[type=tel],.bad select{border-color:var(--err)}
+#done{display:none;text-align:center}
+#done h2{justify-content:center;color:var(--ok)}
+#sum{white-space:pre-wrap;text-align:right;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;font-size:14px;max-height:320px;overflow:auto}
+.sec2{margin-top:10px;background:var(--soft);color:var(--ink);border:1.5px solid var(--pri);border-radius:12px;font:inherit;font-weight:700;padding:10px 18px;cursor:pointer}
+a.wa{display:block;text-align:center;text-decoration:none;font-weight:800;font-size:17px;color:#fff;background:#1a8a5a;border-radius:14px;padding:14px;margin:14px 0 4px}
+footer{text-align:center;color:var(--mute);font-size:13px;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<div class="logo">NIVRO</div>
+<h1>نموذج طلب ملف إنجاز</h1>
+<p>صمّم ملف إنجازك بالشكل اللي يعبّر عنك ✨</p>
+</header>
+
+<form id="f" novalidate>
+
+<section>
+<h2><span>١</span>المعلومات الشخصية</h2>
+<div class="q" data-r>
+<label class="t" for="name">الاسم <b class="req">*</b></label>
+<input type="text" id="name" name="الاسم" autocomplete="name">
+<div class="err">فضلًا اكتب اسمك.</div>
+</div>
+<div class="q" data-r>
+<label class="t" for="wa">رقم الواتساب <b class="req">*</b></label>
+<input type="tel" id="wa" name="رقم الواتساب" inputmode="tel" dir="ltr" style="text-align:right" placeholder="05xxxxxxxx" autocomplete="tel">
+<div class="err">فضلًا اكتب رقم واتساب صحيح.</div>
+</div>
+<div class="q" data-r>
+<label class="t" for="stu">اسم الطالب أو الطالبة <b class="req">*</b></label>
+<input type="text" id="stu" name="اسم الطالب أو الطالبة">
+<div class="err">فضلًا اكتب اسم الطالب أو الطالبة.</div>
+</div>
+<div class="q" data-r>
+<label class="t" for="grade">الصف الدراسي <b class="req">*</b></label>
+<select id="grade" name="الصف الدراسي">
+<option value="">اختر الصف الدراسي</option>
+<option>الروضة</option><optgroup label="المرحلة الابتدائية"><option>الصف الأول الابتدائي</option><option>الصف الثاني الابتدائي</option><option>الصف الثالث الابتدائي</option><option>الصف الرابع الابتدائي</option><option>الصف الخامس الابتدائي</option><option>الصف السادس الابتدائي</option></optgroup><optgroup label="المرحلة المتوسطة"><option>الصف الأول المتوسط</option><option>الصف الثاني المتوسط</option><option>الصف الثالث المتوسط</option></optgroup><optgroup label="المرحلة الثانوية"><option>الصف الأول الثانوي</option><option>الصف الثاني الثانوي</option><option>الصف الثالث الثانوي</option></optgroup><optgroup label="أخرى"><option>جامعي</option><option>أخرى</option></optgroup>
+</select>
+<div class="err">فضلًا اختر الصف الدراسي.</div>
+</div>
+</section>
+
+<section>
+<h2><span>٢</span>الصفحات المطلوبة</h2>
+<div class="q">
+<div class="t">وش الصفحات اللي تبيها في الملف؟ <span class="opt">(تقدر تختار أكثر من خيار)</span></div>
+<div class="opts" data-g="الصفحات المطلوبة">
+<label><input type="checkbox" value="الغلاف">الغلاف</label>
+<label><input type="checkbox" value="المقدمة">المقدمة</label>
+<label><input type="checkbox" value="الرؤية">الرؤية</label>
+<label><input type="checkbox" value="السيرة الذاتية">السيرة الذاتية</label>
+<label><input type="checkbox" value="الجدول المدرسي">الجدول المدرسي</label>
+<label><input type="checkbox" value="أذكار الصباح">أذكار الصباح</label>
+<label><input type="checkbox" value="أذكار المساء">أذكار المساء</label>
+<label><input type="checkbox" value="كلمة إلى معلمتي">كلمة إلى معلمتي</label>
+<label><input type="checkbox" value="إنجازاتي">إنجازاتي</label>
+<label><input type="checkbox" value="شهاداتي">شهاداتي</label>
+</div>
+</div>
+</section>
+
+<section>
+<h2><span>٣</span>الفواصل والمواد الدراسية</h2>
+<div class="q">
+<div class="t">وش الفواصل اللي تبيها؟ <span class="opt">(تقدر تختار أكثر من خيار)</span></div>
+<div class="opts" data-g="الفواصل والمواد الدراسية">
+<label><input type="checkbox" value="الرياضيات">الرياضيات</label>
+<label><input type="checkbox" value="العلوم">العلوم</label>
+<label><input type="checkbox" value="اللغة العربية">اللغة العربية</label>
+<label><input type="checkbox" value="اللغة الإنجليزية">اللغة الإنجليزية</label>
+<label><input type="checkbox" value="الدراسات الإسلامية">الدراسات الإسلامية</label>
+<label><input type="checkbox" value="الدراسات الاجتماعية">الدراسات الاجتماعية</label>
+<label><input type="checkbox" value="المهارات الرقمية">المهارات الرقمية</label>
+<label><input type="checkbox" value="القرآن الكريم">القرآن الكريم</label>
+<label><input type="checkbox" value="التوحيد">التوحيد</label>
+<label><input type="checkbox" value="التفسير">التفسير</label>
+<label><input type="checkbox" value="الحديث">الحديث</label>
+<label><input type="checkbox" value="الفقه">الفقه</label>
+<label><input type="checkbox" value="لغتي">لغتي</label>
+<label><input type="checkbox" value="الأحياء">الأحياء</label>
+<label><input type="checkbox" value="الفيزياء">الفيزياء</label>
+<label><input type="checkbox" value="الكيمياء">الكيمياء</label>
+<label><input type="checkbox" value="التاريخ">التاريخ</label>
+<label><input type="checkbox" value="الجغرافيا">الجغرافيا</label>
+<label><input type="checkbox" value="المواطنة الرقمية">المواطنة الرقمية</label>
+<label><input type="checkbox" value="التربية الفنية">التربية الفنية</label>
+<label><input type="checkbox" value="التربية البدنية والدفاع عن النفس">التربية البدنية والدفاع عن النفس</label>
+<label><input type="checkbox" value="المهارات الحياتية والأسرية">المهارات الحياتية والأسرية</label>
+<label><input type="checkbox" value="التفكير الناقد">التفكير الناقد</label>
+<label><input type="checkbox" value="التربية المهنية">التربية المهنية</label>
+<label><input type="checkbox" value="التربية الصحية والبدنية">التربية الصحية والبدنية</label>
+<label><input type="checkbox" value="المعرفة المالية">المعرفة المالية</label>
+<label><input type="checkbox" value="النشاط الطلابي">النشاط الطلابي</label>
+<label><input type="checkbox" value="علم البيئة">علم البيئة</label>
+<label><input type="checkbox" value="علوم الأرض والفضاء">علوم الأرض والفضاء</label>
+<label><input type="checkbox" value="التقنية الرقمية">التقنية الرقمية</label>
+<label><input type="checkbox" value="علوم الحاسب">علوم الحاسب</label>
+<label><input type="checkbox" value="الهندسة">الهندسة</label>
+<label><input type="checkbox" value="إدارة الأعمال">إدارة الأعمال</label>
+<label><input type="checkbox" value="الاقتصاد">الاقتصاد</label>
+<label><input type="checkbox" value="القانون">القانون</label>
+<label><input type="checkbox" value="البحث ومصادر المعلومات">البحث ومصادر المعلومات</label>
+<label><input type="checkbox" value="الكفايات اللغوية">الكفايات اللغوية</label>
+</div>
+</div>
+</section>
+
+<section>
+<h2><span>٤</span>المسلسل والشخصيات</h2>
+<div class="q">
+<label class="t" for="show">وش اسم المسلسل أو الأنمي اللي تبيه يكون ثيم الملف؟ <span class="opt">(اختياري)</span></label>
+<input type="text" id="show" name="المسلسل أو الأنمي">
+</div>
+<div class="q">
+<label class="t" for="chars">اكتب أسماء الشخصيات اللي تبي إضافتها في التصميم. <span class="opt">(اختياري)</span></label>
+<textarea id="chars" name="الشخصيات"></textarea>
+</div>
+</section>
+
+<section>
+<h2><span>٥</span>الألوان والتصميم</h2>
+<div class="q">
+<div class="t">وش الألوان اللي تفضلها؟ <span class="opt">(تقدر تختار أكثر من لون)</span></div>
+<div class="opts" data-g="الألوان المفضلة">
+<label><input type="checkbox" value="أزرق">أزرق</label>
+<label><input type="checkbox" value="أسود">أسود</label>
+<label><input type="checkbox" value="أبيض">أبيض</label>
+<label><input type="checkbox" value="بنفسجي">بنفسجي</label>
+<label><input type="checkbox" value="وردي">وردي</label>
+<label><input type="checkbox" value="أحمر">أحمر</label>
+<label><input type="checkbox" value="أخضر">أخضر</label>
+<label><input type="checkbox" value="أصفر">أصفر</label>
+<label><input type="checkbox" value="ألوان أخرى">ألوان أخرى</label>
+</div>
+</div>
+<div class="q">
+<label class="t" for="theme">وش نوع الثيم اللي تبيه؟</label>
+<select id="theme" name="نوع الثيم">
+<option value="">اختر نوع الثيم</option>
+<option>أنمي</option><option>مسلسلات</option><option>كرتون</option><option>بسيط وهادئ</option><option>عشوائي وفني</option><option>ثيم من اختياري</option>
+</select>
+</div>
+<div class="q">
+<div class="t">صور مرجعية للتصميم <span class="opt">(اختياري)</span></div>
+<div class="file">
+<input type="file" id="imgs" accept="image/*" multiple>
+<div class="hint">ارفق صور تعطينا فكرة عن الشكل اللي تبيه</div>
+<div class="thumbs" id="th"></div>
+</div>
+</div>
+</section>
+
+<section>
+<h2><span>٦</span>تفاصيل إضافية</h2>
+<div class="q">
+<label class="t" for="extra">هل عندك إضافات أو طلبات ثانية؟ <span class="opt">(اختياري)</span></label>
+<textarea id="extra" name="إضافات أو طلبات ثانية"></textarea>
+</div>
+<div class="q">
+<label class="t" for="due">متى تبي يكون الطلب جاهز؟ <span class="opt">(اختياري)</span></label>
+<input type="date" id="due" name="تاريخ الجاهزية">
+</div>
+</section>
+
+<div class="note">📌 <b>ملاحظة:</b> إرسال النموذج لا يعني تأكيد الطلب. سيتم التواصل لتأكيد التفاصيل والسعر، ويبدأ التنفيذ بعد تأكيد الدفع.</div>
+<button class="go" type="submit">إرسال الطلب</button>
+</form>
+
+<section id="done">
+<h2>✅ تم تجهيز طلبك</h2>
+<p>هذا ملخص طلبك. اضغط الزر لإرساله لنا على الواتساب، وبنتواصل معك لتأكيد التفاصيل والسعر.</p>
+<div id="sum"></div>
+<a class="wa" id="wa2" target="_blank" rel="noopener" href="https://wa.me/966533294799">إرسال الطلب عبر الواتساب</a>
+<p class="hint">إذا عندك صور مرجعية، أرسلها في نفس المحادثة بعد الملخص.</p>
+<button class="sec2" id="cp" type="button">نسخ الملخص</button>
+<p class="hint">إرسال النموذج لا يعني تأكيد الطلب، ويبدأ التنفيذ بعد تأكيد الدفع.</p>
+</section>
+<footer>NIVRO · تصاميم وملفات رقمية</footer>
+</div>
+<script>
+var f=document.getElementById('f');
+document.getElementById('imgs').addEventListener('change',function(e){
+ var th=document.getElementById('th');th.innerHTML='';
+ Array.prototype.slice.call(e.target.files,0,12).forEach(function(file){
+  var i=document.createElement('img');i.src=URL.createObjectURL(file);th.appendChild(i);});
+});
+function vals(g){return Array.prototype.map.call(g.querySelectorAll('input:checked'),function(i){return i.value}).join('، ')||'—'}
+function v(id){return (document.getElementById(id).value||'').trim()||'—'}
+f.addEventListener('submit',function(e){
+ e.preventDefault();var ok=true,first=null;
+ f.querySelectorAll('[data-r]').forEach(function(q){
+  var el=q.querySelector('input,select'),val=el.value.trim(),good=!!val;
+  if(el.type==='tel')good=/^[+0-9\s-]{8,}$/.test(val);
+  q.classList.toggle('bad',!good);
+  if(!good){ok=false;if(!first)first=q;}
+ });
+ if(!ok){first.scrollIntoView({behavior:'smooth',block:'center'});return;}
+ var n=document.getElementById('imgs').files.length;
+ var t='طلب ملف إنجاز - NIVRO\n\n'+
+ 'الاسم: '+v('name')+'\nرقم الواتساب: '+v('wa')+'\nاسم الطالب أو الطالبة: '+v('stu')+'\nالصف الدراسي: '+v('grade')+'\n\n'+
+ 'الصفحات المطلوبة: '+vals(f.querySelector('[data-g="الصفحات المطلوبة"]'))+'\n'+
+ 'الفواصل: '+vals(f.querySelector('[data-g="الفواصل والمواد الدراسية"]'))+'\n\n'+
+ 'المسلسل أو الأنمي: '+v('show')+'\nالشخصيات: '+v('chars')+'\n\n'+
+ 'الألوان: '+vals(f.querySelector('[data-g="الألوان المفضلة"]'))+'\nنوع الثيم: '+v('theme')+'\n'+
+ 'الصور المرجعية: '+(n?n+' (أرسلها مع الرسالة)':'—')+'\n\n'+
+ 'إضافات أو طلبات ثانية: '+v('extra')+'\nموعد الجاهزية: '+v('due');
+ document.getElementById('sum').textContent=t;
+ document.getElementById('wa2').href='https://wa.me/966533294799?text='+encodeURIComponent(t);
+ f.style.display='none';var d=document.getElementById('done');d.style.display='block';d.scrollIntoView();
+});
+document.getElementById('cp').addEventListener('click',function(){
+ var t=document.getElementById('sum').textContent,b=this;
+ function ok(){b.textContent='تم النسخ ✓'}
+ if(navigator.clipboard)navigator.clipboard.writeText(t).then(ok,function(){});else ok();
+});
+</script>
+</body>
+</html>
